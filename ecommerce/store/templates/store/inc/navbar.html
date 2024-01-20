@@ -1,9 +1,21 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
       <a class="navbar-brand" href="#">MyStore</a>
+      
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
+      <div class="search-bar">
+        <form action="{% url 'searchproduct' %}" method="POST">
+          {% csrf_token %}
+          <div class="input-group">
+            <input type="search" required class="form-control" name="productsearch" id="searchproducts" placeholder="Search Products">
+            <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
+          </div>
+        </form>
+      </div>
+
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
@@ -41,10 +53,10 @@
           {% endif %}
 
         </ul>
-        <form class="d-flex" role="search">
+        {% comment %} <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+        </form> {% endcomment %}
       </div>
     </div>
   </nav>
