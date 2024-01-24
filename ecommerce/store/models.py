@@ -51,13 +51,6 @@ class Product(models.Model):
         return self.name
     
 
-class Cart(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    product_qty = models.IntegerField(null=False, blank=False)
-    created_at = models.DateTimeField(auto_now_add=True)
-
-
 class Wishlist(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
@@ -115,4 +108,31 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.username
-  
+
+
+
+
+#for coupons
+    
+# class Coupon(models.Model):
+#     coupon_name = models.CharField(max_length=20,default='discount coupon')
+#     code = models.CharField(max_length=10)
+#     discount = models.IntegerField(default=100)
+#     valid_from = models.DateField()
+#     valid_to = models.DateField()
+#     is_expired = models.BooleanField(default=False)
+#     minimum_amount = models.IntegerField(default=500)
+#     is_available = models.BooleanField(default=True)
+
+#     def __str__(self):
+#         return self.code
+    
+    #coupons end here and coupon field added to cart models too
+
+    
+class Cart(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    product_qty = models.IntegerField(null=False, blank=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    # coupon = models.ForeignKey(Coupon, on_delete=models.SET_NULL , null=True , blank=True)

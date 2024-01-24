@@ -5,6 +5,7 @@ from django.http import JsonResponse, HttpResponse
 
 from django.contrib.auth.decorators import login_required
 from store.models import Cart
+# from store.models import Coupon
 from store.models import Order
 from store.models import OrderItem
 from store.models import Product,Profile
@@ -123,3 +124,34 @@ def razorpaycheck(request):
 
 def orders(request):
     return HttpResponse("My orders page")
+
+
+
+
+
+
+
+
+# for coupons
+
+
+# @login_required(login_url='loginpage')
+# def ApplyCoupon(request):
+#     print("hai im here")
+#     if request.method == 'POST':
+#         coupons = Coupon.objects.all()
+#         context= {'coupons': coupons}
+#         return render(request, "store/checkout.html",context)
+        
+    
+        # grand_total=request.POST.get('key2')
+        # grand_totals=float(grand_total)
+        # try:
+        #     coupons = Coupon.objects.get(code=coupon_code)
+            
+        # except:
+        #     print("its working on except")
+        # discount_amount=coupons.discount
+        # total=grand_totals-discount_amount
+        # request.session['grand_total'] = total
+        # return JsonResponse({"total": f"{total}", "discount_amount": f"{discount_amount}"})

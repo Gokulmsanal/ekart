@@ -1,3 +1,73 @@
+//start of coupons
+// function copyText(button) {
+//     var couponCodeInput = button.parentElement.querySelector('.coupon-code');
+//     couponCodeInput.select();
+//     couponCodeInput.setSelectionRange(0, 99999); 
+//     document.execCommand('copy');
+
+//     var alertMessage = button.parentElement.querySelector('.alert');
+//     alertMessage.style.display = 'block';
+
+//     setTimeout(function () {
+//         alertMessage.style.display = 'none';
+//     }, 3000);
+// }
+
+// jQuery.noConflict();
+
+// var couponApplied = false;
+
+// document.getElementById('ApplyCoupon').addEventListener('click', function () {
+//     if (couponApplied) {
+//         console.log("Coupon already applied!");
+//         return;
+//     }
+
+//     console.log("Applying coupon...");
+
+//     var coupon_code = document.getElementById('coupon').value;
+//     var grand_total = document.getElementById('grand_total').innerText;
+
+//     console.log(grand_total, "This is the total value to Checkout");
+
+//     var token = $("[name='csrfmiddlewaretoken']").val();
+//     var dataToSend = {
+//         key1: coupon_code,
+//         key2: grand_total,
+//         csrfmiddlewaretoken: token,
+//     };
+
+//     $.ajax({
+//         url: '/checkout/coupons/',
+//         method: 'POST',
+//         data: dataToSend,
+//         success: function (response) {
+//             console.log(document.getElementById('discounts').innerText);
+//             document.getElementById('discounts').innerText = +response.discount_amount;
+
+//             console.log(response.total);
+//             console.log("this is the discounted amount ", response.discount_amount);
+//             console.log("this is the discounted amount1111 ", response.total);
+
+//             document.getElementById('grand_total').innerText = response.total;
+
+//             couponApplied = true;
+//         },
+//         error: function (error) {
+//             console.error('Error:', error);
+//         }
+//     });
+// });
+
+
+
+
+
+
+
+//end of coupons
+
+
 $(document).ready(function () {
 
     $('.payWithRazorpay').click(function (e) {
