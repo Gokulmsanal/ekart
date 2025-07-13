@@ -19,7 +19,8 @@ def index(request):
     rawcart = Cart.objects.filter(user=request.user)
     for item in rawcart:
         if item.product_qty > item.product.quantity :
-            Cart.objects.delete(id=item.id)
+            # Cart.objects.delete(id=item.id)
+            item.delete()
 
     cartitems = Cart.objects.filter(user=request.user)
     total_price = 0
